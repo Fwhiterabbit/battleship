@@ -10,14 +10,17 @@ Previous_Guesses = []
 # Clears the console screen, is uses "os" module and thte system function to call the appropriate
 # command based on the operating system
 
+
 def clear_screen():
     os.system("cls" if os.name == "nt" else "clear")
 
 # This function prints the game the game board with the current state of the hidden
 # and guessed patterns, it displays the row and collumn labels along with the corresponding cells.
 
+
 def print_board(board):
     clear_screen()
+    print("    .+*^*+. The Game Board .+*^*+.")
     print('     A   B   C   D   E   F   G   H')
     print('   ┌───┬───┬───┬───┬───┬───┬───┬───┐')
     for row_num, row in enumerate(board):
@@ -30,6 +33,7 @@ def print_board(board):
 # this function prompts the player to enter a guess for the location of a battleship.
 # It validates the input and returns the row and column indicates of thte guess.
 
+
 def get_ship_location():
     while True:
         guess = input("Enter a guess (e.g., 4B): ").upper()
@@ -40,8 +44,9 @@ def get_ship_location():
 # This function randomly places battleships on the hidden patter board, is uses "randint" function
 # to determine the size, direction, and position of each battleship.
 
+
 def create_ships(board):
-    ship_sizes = [4, 3, 2, 1,]
+    ship_sizes = [4, 3, 2, 1, ]
     for size in ship_sizes:
         ship_placed = False
         while not ship_placed:
@@ -69,6 +74,7 @@ def create_ships(board):
 
 #  This function counts the number of hits (battleship) on the board
 
+
 def count_hit_ships(board):
     hit_count = 0
     for row in board:
@@ -76,6 +82,7 @@ def count_hit_ships(board):
     return hit_count
 
 # This function calculate the accuracy of the players guesses
+
 
 def calculate_accuracy(guesses):
     total_guesses = 15
@@ -85,11 +92,13 @@ def calculate_accuracy(guesses):
 
 # this fucntion ask the player if he or she wants to play again
 
+
 def play_again():
     answer = input("Do you want to play again? (yes/no): ").lower()
     return answer == "yes"
 
 # Function that prints welcome screen and main menu of the game
+
 
 def print_welcome():
     clear_screen()
@@ -104,6 +113,7 @@ def print_welcome():
     print("-----------------------")
 
 # This function prints the rules of the game
+
 
 def print_rules():
     clear_screen()
@@ -127,6 +137,7 @@ def print_rules():
 
 #  this function prints the game over screen displaying the players accuracy
 
+
 def print_outro(accuracy):
     clear_screen()
     print("-----------------------")
@@ -137,6 +148,7 @@ def print_outro(accuracy):
 
 # This function prints players previous guesses
 
+
 def print_previous_guesses():
     if Previous_Guesses:
         print("Previous Guesses:")
@@ -144,6 +156,7 @@ def print_previous_guesses():
             print("Row:", guess[0] + 1, ", Column:", chr(guess[1] + ord("A")))
     else:
         print("No previous guesses.")
+
 
 print_welcome()
 while True:
