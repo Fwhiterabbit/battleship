@@ -1,6 +1,7 @@
 import os
 from random import randint
 
+
 BOARD_SIZE = 8
 
 Hidden_Pattern = [[" "] * BOARD_SIZE for _ in range(BOARD_SIZE)]
