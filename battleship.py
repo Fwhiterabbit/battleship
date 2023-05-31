@@ -1,6 +1,6 @@
 import os
 from random import randint
-
+port = int(os.environ.get("PORT", 5000))
 
 BOARD_SIZE = 8
 
