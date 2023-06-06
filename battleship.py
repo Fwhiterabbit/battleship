@@ -1,6 +1,7 @@
 import os
 from random import randint
 from flask import Flask
+import json
 
 battleship = Flask(__name__)
 
@@ -112,7 +113,7 @@ def print_welcome():
     print("-----------------------")
     print("  1. New Game")
     print("  2. Rules")
-    print("  3. Quit")
+    print("  3. Quit Program")
     print("-----------------------")
 
 # This function prints the rules of the game
@@ -207,8 +208,3 @@ while True:
         break
     else:
         print("Invalid choice. Please enter a number from 1 to 3.")
-
-port = int(os.environ.get("PORT", 5000))
-
-if __name__ == '__main__':
-    battleship.run(host='0.0.0.0', port=port)
