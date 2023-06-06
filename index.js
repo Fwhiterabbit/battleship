@@ -1,22 +1,30 @@
-const { spawn } = require('child_process');
-const express = require('express');
-const app = express();
-const port = process.env.PORT || 3000;
+// ===================================================
+// Total.js start script
+// https://www.totaljs.com
+// ===================================================
 
-battleship.get('/', (req, res) => {
-    const pythonProcess = spawn('python', ['index.py']);
-  
-    pythonProcess.stdout.on('data', (data) => {
-      console.log(`stdout: ${data}`);
-    });
-  
-    pythonProcess.stderr.on('data', (data) => {
-      console.error(`stderr: ${data}`);
-    });
-  
-    pythonProcess.on('close', (code) => {
-      console.log(`child process exited with code ${code}`);
-      res.send('Application executed successfully.');
-    });
-  });
-  
+const options = {};
+
+// options.ip = '127.0.0.1';
+options.port = parseInt(process.env.PORT);
+// options.unixsocket = require('path').join(require('os').tmpdir(), 'app_name');
+// options.config = { name: 'Total.js' };
+// options.sleep = 3000;
+// options.inspector = 9229;
+// options.watch = ['private'];
+// options.livereload = 'https://yourhostname';
+
+// Enables cluster:
+// options.cluster = 'auto';
+// options.cluster_limit = 10; // max 10. threads (works only with "auto" scaling)
+
+// Enables threads:
+// options.cluster = 'auto';
+// options.cluster_limit = 10; // max 10. threads (works only with "auto" scaling)
+// options.timeout = 5000;
+// options.threads = '/api/';
+// options.logs = 'isolated';
+
+var type = process.argv.indexOf('--release', 1) !== -1 || process.argv.indexOf('release', 1) !== -1 ? 'release' : 'debug';
+// require('total4/' + type)(options);
+require('total4').http('release', options);
