@@ -1,5 +1,8 @@
 import os
 from random import randint
+from flask import Flask
+
+battleship = Flask(__name__)
 
 BOARD_SIZE = 8
 
@@ -204,3 +207,8 @@ while True:
         break
     else:
         print("Invalid choice. Please enter a number from 1 to 3.")
+
+port = int(os.environ.get("PORT", 5000))
+
+if __name__ == '__main__':
+    battleship.run(host='0.0.0.0', port=port)
