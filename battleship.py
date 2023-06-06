@@ -13,15 +13,11 @@ Previous_Guesses = []
 
 # Clears the console screen, is uses "os" module and thte system function to call the appropriate
 # command based on the operating system
-
-
 def clear_screen():
     os.system("cls" if os.name == "nt" else "clear")
 
 # This function prints the game the game board with the current state of the hidden
 # and guessed patterns, it displays the row and collumn labels along with the corresponding cells.
-
-
 def print_board(board):
     clear_screen()
     print("    .+*^*+. The Game Board .+*^*+.")
@@ -36,8 +32,6 @@ def print_board(board):
 
 # this function prompts the player to enter a guess for the location of a battleship.
 # It validates the input and returns the row and column indicates of thte guess.
-
-
 def get_ship_location():
     while True:
         guess = input("Enter a guess (e.g., 4B): ").upper()
