@@ -1,1 +1,1 @@
-web: gunicorn battleship:battleship
+web: node index.js
